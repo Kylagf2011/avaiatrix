@@ -10,7 +10,7 @@ import Foundation
 
 class Aviatrix {
     
-    
+    var currentLocation = "St. Louis"
     
     //who created the plane
     //property called author, this init reads the author
@@ -34,14 +34,25 @@ class Aviatrix {
     }
     
     func flyTo(destination : String) {
-        
+        currentLocation = destination 
     }
     
-    func distanceTo(target : String) {
-    
+    //tell every plane how far palces are
+    //need place and distance
+    func distanceTo(target : String, current : String) -> Int {
+        //need info from AviatrixData file
+        let data = AviatrixData()
+        return data.knownDistances[current]![target]!
+        //uses ! to mean not and to know that there is definitly data
     }
     
+    //the place where you can fly
     func knownDestinations() -> [String] {
-       return ["St. Louis"]
+        //change func to return all know destinations
+        //need to get info from AviatrixData.swift
+        let data = AviatrixData()
+        //called AviatrixData
+       return Array(data.knownDistances.keys)
+        //all keys form knowDistances stored in array
     }
 }
