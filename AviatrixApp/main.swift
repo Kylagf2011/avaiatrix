@@ -11,12 +11,12 @@ import Foundation
 func gauges(myPlane : Aviatrix) {
     print("Reading the gauges...")
     print(" ")
-//    print("| Running:  | ✅")
+    print("| Running:  | ✅")
     print("| Location:  | \(myPlane.currentLocation)")
-//    print("| Distance:  | \(myPlane.distanceTraveled) miles")
-//    print("| Fuel:      | \(myPlane.fuelLevel) gallons")
-//    print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
-//    print("| MPG:       | \(myPlane.milesPerGallon)")
+    print("| Distance:  | \(myPlane.distanceTraveled) miles")
+    print("| Fuel:      | \(myPlane.fuelLevel) gallons")
+    print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
+    print("| MPG:       | \(myPlane.milesPerGallon)")
 //    print("| Fuel Bill: | \(myPlane.fuelCost)")
 }
 
@@ -43,7 +43,7 @@ func fly(myPlane : Aviatrix) {
         
         if fuelCheck(myPlane: myPlane, destination : desiredLocation) {
             myPlane.flyTo(destination: desiredLocation)
-            print("🛬 You've arrived in \(plane.currentLocation)!")
+            print("🛬 You've arrived in \(myPlane.currentLocation)!")
             gauges(myPlane: myPlane)
         }
     }
@@ -57,13 +57,14 @@ func refuel(myPlane : Aviatrix) {
     let refuelData = myPlane.refuel()
     
     print("Refueling...")
-    print("⛽ Here in _________, jet fuel costs _________")
+    //finish this
+    print("⛽ Here in \(myPlane.currentLocation), jet fuel costs \(myPlane.)")
     print("⛽ You refueled _________ gallons totaling _________")
 }
 
 func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
-//    let distanceToTravel =  Double(myPlane.distanceTo(target : destination))
-//    if myPlane.fuelLevel < distanceToTravel {
+    let distanceToTravel =  Double(myPlane.distanceTo(target : destination, current:myPlane.currentLocation))
+    if myPlane.fuelLevel < distanceToTravel {
 //        print(" ")
 //        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
 //        print("Oh no! You've run out of fuel and crashed on the way to \(myPlane.location)!")
@@ -72,7 +73,7 @@ func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
 //        return false
 //    } else {
 //        return true
-//    }
+    }
     return true
 }
 

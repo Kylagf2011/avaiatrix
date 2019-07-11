@@ -11,6 +11,11 @@ import Foundation
 class Aviatrix {
     
     var currentLocation = "St. Louis"
+    var distanceTraveled = 0
+    var maxFuel = 5000
+    var fuelLevel = 5000.0
+    var milesPerGallon = 0.4
+    //var fuelCost =
     
     //who created the plane
     //property called author, this init reads the author
@@ -34,7 +39,10 @@ class Aviatrix {
     }
     
     func flyTo(destination : String) {
-        currentLocation = destination 
+        distanceTraveled += distanceTo(target: destination, current: currentLocation)
+        //check this
+        fuelLevel -= milesPerGallon * Double(distanceTraveled)
+        currentLocation = destination
     }
     
     //tell every plane how far palces are
